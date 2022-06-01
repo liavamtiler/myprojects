@@ -1,30 +1,28 @@
 window.onload = async () => {
+  await loadPurchasingProduct();
+};
+
+async function removeItem(id) {
+  const resp = await fetch(`/delete/${id}`, {
+    method: "DELETE",
+  });
+
+  if (resp.status === 200) {
     await loadPurchasingProduct();
-  };
-  
-  async function removeItem(id) {
-    console.log("click")
-    const resp = await fetch(`/delete/${id}`, {
-      method: "DELETE",
-    });
-    
-    if (resp.status === 200) {
-      console.log("success");
-      await loadPurchasingProduct();
-    }
   }
-  
-  async function loadPurchasingProduct() {
-    const response = await fetch("/getpurchasing-item");
-    const purchasingProducts = await response.json();
-  
-    let purchaseSTR = "";
-    let totalPrice = 0;
-  
-    for (let purchasingProduct of purchasingProducts) {
-      purchaseSTR =
-        purchaseSTR +
-        `
+}
+
+async function loadPurchasingProduct() {
+  const response = await fetch("/getpurchasing-item");
+  const purchasingProducts = await response.json();
+
+  let purchaseSTR = "";
+  let totalPrice = 0;
+
+  for (let purchasingProduct of purchasingProducts) {
+    purchaseSTR =
+      purchaseSTR +
+      `
   
           <div class="card" >
               <img src="./img/product_img/${purchasingProduct.image}" class="card-img-top"  />
@@ -39,28 +37,26 @@ window.onload = async () => {
           
   
           `;
-      totalPrice += purchasingProduct.original_price_g;
-    }
-    document.querySelector(".purchaseContainer").innerHTML = purchaseSTR;
-    document.querySelector(".totalPrice").innerHTML = `總計：${totalPrice}元`;
+    totalPrice += purchasingProduct.original_price_g;
   }
-  
-  async function getCart() {
-    const resp = await fetch("/numberOFProductsInCart");
-    const cartProduct = await resp.json();
-    for (let productInCart of cartProduct) {
-      let productName = productInCart.product_name;
-      const response = await fetch(`/updateProductSold/${productName}
+  document.querySelector(".purchaseContainer").innerHTML = purchaseSTR;
+  document.querySelector(".totalPrice").innerHTML = `總計：${totalPrice}元`;
+}
+
+async function getCart() {
+  const resp = await fetch("/numberOFProductsInCart");
+  const cartProduct = await resp.json();
+  for (let productInCart of cartProduct) {
+    let productName = productInCart.product_name;
+    const response = await fetch(`/updateProductSold/${productName}
       `);
-  
-      console.log("run");
-    }
   }
-  
-  async function clickPaymentButton() {
-      await getCart()
-      const resp = await fetch("/purchaseHistory");
-      const history = await resp.json();
-      alert(history.Message);
-      window.location.replace("../index.html");
-    };
+}
+
+async function clickPaymentButton() {
+  await getCart();
+  const resp = await fetch("/purchaseHistory");
+  const history = await resp.json();
+  alert(history.Message);
+  window.location.replace("../index.html");
+}

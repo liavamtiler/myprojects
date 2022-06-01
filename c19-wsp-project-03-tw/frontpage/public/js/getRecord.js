@@ -1,30 +1,30 @@
-window.onload= async ()=>{ 
-await userOnline()
- await getRecord();
+window.onload = async () => {
+  await userOnline();
+  await getRecord();
+};
 
+async function userOnline() {
+  const response = await fetch("/user");
+  const currentUser = await response.json();
+  if (currentUser) {
+    document.querySelector(".account").innerHTML = `歡迎會員${currentUser.name}`;
+    document.querySelector(".cart").style.display = "block";
+    document.querySelector(".logout").style.display = "block";
+    document.querySelector(".register").style.display = "none";
+    return;
+  }
 }
 
-async function userOnline (){
-    const response = await fetch("/user")
-    const currenetUser = await response.json()
-    if (currenetUser){
-        document.querySelector(".account").innerHTML = `歡迎會員${currenetUser.name}`
-        document.querySelector(".cart").style.display = "block"
-        document.querySelector(".logout").style.display = "block"
-        document.querySelector(".register").style.display = "none"
-        return 
-    }
+async function getRecord() {
+  const resp = await fetch("/shoppingHistory");
+  const records = await resp.json();
+  console.log(records);
 
-}
-
-async function getRecord(){
- const resp = await fetch("/shoppingHistory");
- const records =  await resp.json();
- console.log(records)
- 
-  let htmlSTR=""
+  let htmlSTR = "";
   for (let record of records) {
-      htmlSTR =  htmlSTR + `
+    htmlSTR =
+      htmlSTR +
+      `
       
       <div class="card dog outCard" >
       <img id ="${record.id}"src="./img/product_img/${record.image}" class="card-img-top" onclick="loadProductsDetail(${record.id})"  />
@@ -34,15 +34,12 @@ async function getRecord(){
 
       </div>
       </div>
-      `
-      document.querySelector(".record").innerHTML = htmlSTR
-
+      `;
+    document.querySelector(".record").innerHTML = htmlSTR;
   }
-
 }
 
-async function loadProductsDetail(id){
-    url = `/productDetail.html?id=${id}`
-   document.location.href = url
-
+async function loadProductsDetail(id) {
+  url = `/productDetail.html?id=${id}`;
+  document.location.href = url;
 }

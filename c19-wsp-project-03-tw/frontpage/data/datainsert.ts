@@ -39,18 +39,3 @@ async function demo() {
 }
 
 demo();
-
-//Testing
-// async function demo() {
-//   await client.connect();
-//   const brands: any = XLSX.utils.sheet_to_json(productWorksheet);
-//   for (let brand of brands) {
-//     console.log(brand.brand);
-//     await client.query(`INSERT INTO brands (brand_name) VALUES ($1)`, [
-//       brand.brand,
-//     ]);
-//   }
-//   console.log("完成");
-// }
-
-// demo();

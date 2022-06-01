@@ -16,38 +16,26 @@ const workbook = XLSX.readFile("downloadPhoto.xlsx");
 const productWorksheet = workbook.Sheets["products"];
 
 async function demo() {
-  await client.connect()
-  const products:any = XLSX.utils.sheet_to_json(productWorksheet)
+  await client.connect();
+  const products: any = XLSX.utils.sheet_to_json(productWorksheet);
 
   for (let product of products) {
-    await client.query(`INSERT INTO product_details (product_name,brand_name,original_price_g,weight_g,description,image,pet_name,sold)VALUES($1,$2,$3,$4,$5,$6,$7,$8)`,[
-      product.product_name,
-      product.brand_name,
-      product.original_price_g,
-      product.weight_g,
-      product.description,
-      product.image,
-      product.pet_name,
-      product.sold
-])
+    await client.query(
+      `INSERT INTO product_details (product_name,brand_name,original_price_g,weight_g,description,image,pet_name,sold)VALUES($1,$2,$3,$4,$5,$6,$7,$8)`,
+      [
+        product.product_name,
+        product.brand_name,
+        product.original_price_g,
+        product.weight_g,
+        product.description,
+        product.image,
+        product.pet_name,
+        product.sold,
+      ]
+    );
   }
-  console.log("完成")
-  await client.end()
+  console.log("完成");
+  await client.end();
 }
 
-demo()
-
-//Testing
-// async function demo() {
-//   await client.connect();
-//   const brands: any = XLSX.utils.sheet_to_json(productWorksheet);
-//   for (let brand of brands) {
-//     console.log(brand.brand);
-//     await client.query(`INSERT INTO brands (brand_name) VALUES ($1)`, [
-//       brand.brand,
-//     ]);
-//   }
-//   console.log("完成");
-// }
-
-// demo();
+demo();

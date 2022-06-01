@@ -3,7 +3,6 @@ import { Client } from "pg";
 import dotenv from "dotenv";
 import expressSession from "express-session";
 
-
 export const deleteItem = express.Router();
 dotenv.config();
 deleteItem.use(
@@ -23,12 +22,12 @@ export const client = new Client({
 
 client.connect();
 
-
 //Delete Items according to the User_id And Product_id
-deleteItem.delete("/delete/:cid", async (req,res) => {
-  console.log(req.params.cid)
-  let userId=req.session['user'].id
-  let getPid=req.params.cid
-  const deleteItems = (await client.query(`DELETE FROM cart_products WHERE user_id =${userId} AND id=${getPid}`));
+deleteItem.delete("/delete/:cid", async (req, res) => {
+  let userId = req.session["user"].id;
+  let getPid = req.params.cid;
+  const deleteItems = await client.query(
+    `DELETE FROM cart_products WHERE user_id =${userId} AND id=${getPid}`
+  );
   res.status(200).json(deleteItems);
-})
+});

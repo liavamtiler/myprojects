@@ -34,9 +34,7 @@ logout.addEventListener("click", async function () {
 
 async function loadDogDetailSnackProducts() {
   const searchParams = new URLSearchParams(location.search);
-  console.log(searchParams);
   const id = searchParams.get("id");
-  console.log(id);
 
   const response = await fetch(`/productDetail.html/${id}`);
   const selectedDogFoods = await response.json();
@@ -102,7 +100,6 @@ async function likeFun() {
       likebtn.innerHTML = isLike;
 
       block = true;
-      console.log("insert");
       getAllLikes();
       return;
     }
@@ -115,10 +112,9 @@ async function likeFun() {
     });
     document.querySelector(".likeInnerContainer").innerHTML = deleteLike;
     block = false;
-    getAllLikes()
+    getAllLikes();
   });
 }
-
 
 async function getAllLikes() {
   const resp = await fetch(`/alllikeproduct/${id}`);
@@ -140,7 +136,6 @@ async function insertProductToCart() {
     });
 
     if (response.status === 200) {
-      console.log("thanks a lot ");
     }
 
     showCartNumber();
@@ -150,7 +145,6 @@ async function insertProductToCart() {
 async function showCartNumber() {
   const resp = await fetch("/numberOFProductsInCart");
   const showCartNumber = await resp.json();
-  console.log(showCartNumber.length);
   let htmlSTR = "";
   htmlSTR =
     htmlSTR +
@@ -169,7 +163,6 @@ async function initPostCom() {
     const formObject = {
       content: forms["content"].value,
     };
-    console.log(formObject);
 
     const resp = await fetch(`/comments/${id}`, {
       method: "POST",
@@ -187,12 +180,10 @@ async function initPostCom() {
 
 const searchParams = new URLSearchParams(location.search);
 const id = searchParams.get("id");
-console.log(id);
 
 async function loadComments() {
   const resp = await fetch(`/comments/${id}`);
   const comments = await resp.json();
-  console.log(comments);
 
   let html = ``;
   for (const comment of comments) {
@@ -216,12 +207,9 @@ async function editComments(commentID, userID) {
   const editedforms = document.querySelector("#editedForm");
   const edit = await fetch(`/check/`);
   const checker = await edit.json();
-  console.log(checker);
-
-  console.log("commentID :" + commentID, "user:" + userID);
 
   if (userID == checker.user_id) {
-    const newEdit = prompt("想修改成甚麼內容？");
+    const newEdit = prompt("what do you want to edit？");
 
     let editComment = {
       content: newEdit,
@@ -240,7 +228,7 @@ async function editComments(commentID, userID) {
       await loadComments();
     }
   } else {
-    alert("人地既野唔好改啦！");
+    alert("Not allow to change！");
   }
 }
 
@@ -250,8 +238,6 @@ async function deleteComments(commentID, userID) {
   const del = await fetch(`/check/`);
   const checker = await del.json();
 
-  console.log(userID);
-
   if (userID == checker.user_id) {
     const deleteObject = { id: commentID };
 
@@ -259,10 +245,9 @@ async function deleteComments(commentID, userID) {
       method: "DELETE",
     });
     if (resp.status === 200) {
-      console.log("success");
       await loadComments();
     }
   } else {
-    alert("想刪人地留言咁霸道！？我唔比！");
+    alert("Do not edit others' comments ！");
   }
 }

@@ -1,13 +1,9 @@
-window.onload = async ()=>{
-
-  await createNewUser()
-}
-
-
+window.onload = async () => {
+  await createNewUser();
+};
 
 async function createNewUser() {
   const forms = document.querySelector("#registrationForm");
-  console.log(forms);
   forms.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -18,7 +14,6 @@ async function createNewUser() {
       gender: forms["gender"].value,
     };
 
-    console.log(newUserValue);
     const response = await fetch("/register", {
       method: "post",
       headers: {
@@ -28,9 +23,8 @@ async function createNewUser() {
     });
 
     if (response.status === 200) {
-      console.log("success");
-      alert("成功了")
-      window.location.replace("/")
+      alert("成功了");
+      window.location.replace("/");
       return;
     }
     if (response.status === 400) {
@@ -52,7 +46,3 @@ async function createNewUser() {
     }
   });
 }
-
-
-
-

@@ -36,50 +36,63 @@ export class UserService {
     );
   }
 
-async userPurchasingHistory(userID:number){
-  let productNumber= (await this.client.query(`SELECT * FROM cart_products where user_id=${userID}`)).rows
-  return productNumber
+  async userPurchasingHistory(userID: number) {
+    let productNumber = (
+      await this.client.query(`SELECT * FROM cart_products where user_id=${userID}`)
+    ).rows;
+    return productNumber;
+  }
+
+  async cancelWishlistItem(userID: number, productID: number) {
+    const cancelItems = await this.client.query(
+      `DELETE FROM cart_products WHERE user_id =${userID} AND id=${productID}`
+    );
+    return cancelItems;
+  }
+
+  async giveCommentToProduct(
+    content: string,
+    time: Date,
+    userID: number,
+    productId: number,
+    userName: string
+  ) {
+    const insertedComment = await this.client.query(
+      `INSERT INTO comments (content,created_at,user_id,product_id,user_name) VALUES ($1,$2,$3,$4,$5)`,
+      [content, time, userID, productId, userName]
+    );
+    return insertedComment;
+  }
+
+  async editComment(content: string, userID: number) {
+    const editedComment = (
+      await this.client.query("UPDATE comments SET content = $1 WHERE id = $2", [content, userID])
+    ).rows[0];
+    return editedComment;
+  }
+
+  async givelike(productId: number) {
+    const giveLike = (
+      await this.client.query(
+        `UPDATE interaction SET like_number = like_number+1 where product_id=${productId} `
+      )
+    ).rows[0];
+    return giveLike;
+  }
+  async initLike(productId: number) {
+    const initLike = await this.client.query(
+      `INSERT INTO interaction (product_id, like_number) VALUES ($1,$2)`,
+      [productId, 1]
+    );
+    return initLike;
+  }
+
+  async cancelLike(productId: number) {
+    const cancelLike = (
+      await this.client.query(
+        `UPDATE interaction SET like_number = like_number-1 where product_id=${productId} `
+      )
+    ).rows[0];
+    return cancelLike;
+  }
 }
-
-async cancelWishlistItem(userID:number,productID:number){
-  const cancelItems = (await this.client.query(`DELETE FROM cart_products WHERE user_id =${userID} AND id=${productID}`));
-  return cancelItems
-}
-
-async giveCommentToProduct(content:string,time:Date,userID:number,producID:number,userName:string) {
-  const insertedComment = await this.client.query(`INSERT INTO comments (content,created_at,user_id,product_id,user_name) VALUES ($1,$2,$3,$4,$5)`,[
-    content,time,userID,producID,userName
-  ])
-  return insertedComment
-}
-
-async editComment(content:string,userID:number) {
-
-
-    const editedComment = ((await this.client.query('UPDATE comments SET content = $1 WHERE id = $2', [content,userID])).rows[0]);
-    return editedComment
-
-}
-
-
-
-async givelike(producID:number){
-  const giveLike = (await this.client.query(`UPDATE interaction SET like_number = like_number+1 where product_id=${producID} `)).rows[0]
-  return  giveLike
-}
-async initLike(producID:number){
-  const initlike = await this.client.query(`INSERT INTO interaction (product_id, like_number) VALUES ($1,$2)`,[
-    producID,1])  
-    return initlike
-}
-
-async cancelLike (producID:number){
-
-  const canceLike = (await this.client.query(`UPDATE interaction SET like_number = like_number-1 where product_id=${producID} `)).rows[0] 
-  return canceLike
-}
-
-
-}
-
-

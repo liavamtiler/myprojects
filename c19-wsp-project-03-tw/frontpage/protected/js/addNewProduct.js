@@ -1,38 +1,31 @@
-window.onload =async()=>{
-    addnewProduct()
-}
+window.onload = async () => {
+  addnewProduct();
+};
 
-async function addnewProduct(){
-    const forms = document.querySelector("#add-product-form") 
-    console.log(forms)
+async function addnewProduct() {
+  const forms = document.querySelector("#add-product-form");
 
-    forms.addEventListener("submit",async (event)=>{
-        event.preventDefault()
-    
-        const formData = new FormData()
+  forms.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-        formData.append("newProductName",forms["newProductName"].value);
-        formData.append("brandName",forms["brandName"].value);
-        formData.append("originalPrice",forms["originalPrice"].value)
-        formData.append("weight",forms["weight"].value)        
-        formData.append("description",forms["description"].value)
-        formData.append("product_image",forms["product_image"].files[0])
-        formData.append("animalType",forms["animalType"].value)
-        formData.append("soldNumber",forms["soldNumber"].value)
+    const formData = new FormData();
 
-        console.log(formData)
+    formData.append("newProductName", forms["newProductName"].value);
+    formData.append("brandName", forms["brandName"].value);
+    formData.append("originalPrice", forms["originalPrice"].value);
+    formData.append("weight", forms["weight"].value);
+    formData.append("description", forms["description"].value);
+    formData.append("product_image", forms["product_image"].files[0]);
+    formData.append("animalType", forms["animalType"].value);
+    formData.append("soldNumber", forms["soldNumber"].value);
 
-        const response = await fetch("/add-product",{
-            method:"POST",
-            body:formData
-        })
-        
-        if (response.status===200) {
-            alert("成功")
-            console.log(result)
-    
-        }
-    
+    const response = await fetch("/add-product", {
+      method: "POST",
+      body: formData,
+    });
 
-    })
+    if (response.status === 200) {
+      alert("成功");
+    }
+  });
 }

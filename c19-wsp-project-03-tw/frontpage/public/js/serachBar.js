@@ -1,37 +1,31 @@
-window.onload =async ()=>{
-    await getSearchResult()
-    await userOnline ()
+window.onload = async () => {
+  await getSearchResult();
+  await userOnline();
+};
 
+async function userOnline() {
+  const response = await fetch("/user");
+  const currentUser = await response.json();
+  if (currentUser) {
+    document.querySelector(".account").innerHTML = `歡迎會員${currentUser.name}`;
+    document.querySelector(".cart").style.display = "block";
+    document.querySelector(".logout").style.display = "block";
+    document.querySelector(".register").style.display = "none";
+    return;
+  }
 }
 
-async function userOnline (){
-    const response = await fetch("/user")
-    const currenetUser = await response.json()
-    if (currenetUser){
-        document.querySelector(".account").innerHTML = `歡迎會員${currenetUser.name}`
-        document.querySelector(".cart").style.display = "block"
-        document.querySelector(".logout").style.display = "block"
-        document.querySelector(".register").style.display = "none"
-        return 
-    }
+async function getSearchResult() {
+  const getSearchKey = new URLSearchParams(location.search);
+  const key = getSearchKey.get("title");
 
-}
+  const response = await fetch(`/searchResult/${key}`);
+  const selectedResults = await response.json();
+  const totalResultNumber = selectedResults.length;
 
-
-async function getSearchResult(){
-
-    const getSearchKey = new URLSearchParams(location.search)
-    // console.log(searchParams)
-    const key = getSearchKey.get("title")
-    console.log("the key is " +key)
-
-    const response = await fetch(`/searchResult/${key}`)
-    const selectedResults = await response.json()
-    const totalResultNumber = selectedResults.length
-
-    let resultHtml = ""
-    for (let selectedResult of selectedResults) {
-        resultHtml += `
+  let resultHtml = "";
+  for (let selectedResult of selectedResults) {
+    resultHtml += `
         
         <div class="card dog outCard"  >
         <img id ="${selectedResult.id}"src="./img/product_img/${selectedResult.image}" class="card-img-top" onclick="loadProductsDetail(${selectedResult.id})" />
@@ -52,17 +46,14 @@ async function getSearchResult(){
 
         </div>
         </div>
-        `
-    }
+        `;
+  }
 
-    document.querySelector(".resultContainer").innerHTML = resultHtml
-    document.querySelector(".productNumber").innerHTML = totalResultNumber
+  document.querySelector(".resultContainer").innerHTML = resultHtml;
+  document.querySelector(".productNumber").innerHTML = totalResultNumber;
 }
 
-
-    
-async function loadProductsDetail(id){
-    url = `/productDetail.html?id=${id}`
-   document.location.href = url
-
+async function loadProductsDetail(id) {
+  url = `/productDetail.html?id=${id}`;
+  document.location.href = url;
 }
