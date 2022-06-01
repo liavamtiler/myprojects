@@ -2,10 +2,11 @@
 Start
 step1.  set up .env base on the .env.example
 Step2.  CreateDatabase
-Step3.  cd Server folder and run "yarn knex migrate:latest"  &  "yarn knex seed:latest"
+Step3. after yarn install according to package.json, then  cd Server folder and run "yarn knex migrate:latest"  &  "yarn knex seed:latest"
 ```
-command to start: 
-cd management Folder  -> yarn start to start react-app  (localhost:3000)
+
+command to start:
+cd management Folder -> yarn start to start react-app (localhost:3000)
 cd server Folder-> yarn dev to start the server engine (localhost:8080)
 
 ```
@@ -13,7 +14,7 @@ login Account: admin  password: 123456 (refer to seed file)
 ```
 
 ```
-Remark: 
+Remark:
 for online
 REACT_APP_API=https://server.site-management.store
 
