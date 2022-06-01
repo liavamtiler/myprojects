@@ -1,0 +1,8 @@
+.blur1{
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(3px);
+  }
+  .blur2{
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+  }

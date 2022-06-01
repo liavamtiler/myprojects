@@ -1,0 +1,133 @@
+.uploadPhotoDescriptionAreas {
+  background-color: darkgoldenrod;
+  width: 100%;
+  height: 50vh;
+}
+
+* {
+  font-family: sans-serif; /* Change your font family */
+}
+
+.contentTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.contentTable thead tr {
+  background-color: rgb(0, 132, 255);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contentTable th,
+.contentTable td {
+  padding: 12px 15px;
+}
+
+.contentTable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.contentTable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.contentTable tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* showing which on is active */
+.activeRow {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* Button */
+.button {
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  background: #009578;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+
+  cursor: pointer;
+}
+.button:hover {
+  background: #008168;
+}
+
+/* .button:active {
+  background: #006e58;
+} */
+
+.issue {
+  background: #fac11f;
+}
+.attention {
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  background: #e43e31;
+}
+.issue:hover {
+  background: #c99e27;
+}
+.attention:hover {
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  background: #972f27;
+}
+.pending {
+  background-color: aqua;
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+
+  cursor: pointer;
+}
+.pending:hover {
+  background: rgb(13, 65, 65);
+}
+.completed {
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+  cursor: pointer;
+  background-color: darkkhaki;
+}
+.completed:hover {
+  background-color: rgb(87, 81, 7);
+}
+
+.background {
+  /* The image used */
+  background-image: url(../image/orderpagebg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* Full height */
+  height: 900px;
+}

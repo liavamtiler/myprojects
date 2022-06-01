@@ -1,0 +1,232 @@
+
+# Visualize on https://quick-erd.surge.sh
+#
+# Relationship Types
+#  -    - one to one
+#  -<   - one to many
+#  >-   - many to one
+#  >-<  - many to many
+#  -0   - one to zero or one
+#  0-   - zero or one to one
+#  0-0  - zero or one to zero or one
+#  -0<  - one to zero or many
+#  >0-  - zero or many to one
+#
+# 
+
+users
+-
+id serial pk 
+username int
+password int 
+user_layers int FK >- user_layers.id
+
+user_layers
+- 
+id serial pk 
+name 
+
+
+projects
+-
+id serial pk
+name varchar 
+project_description varchar
+construction_site varchar
+estimated_budget int
+actual_project_cost int 
+construction_plan varchar null
+image_construction_plan varchar null
+created_at date
+project_status_id int fk >- project_status.id
+
+
+
+users_incharge
+-
+id 
+users_id int FK >- users.id 
+project_subItem_id int FK >- project_subItem.id
+
+
+
+project_status
+-
+id serial pk
+status varchar
+
+
+
+project_subItem
+-
+id serial pk 
+name varchar 
+area varchar 
+project_description varchar
+start_date date
+end_date date 
+categories_id int FK >- categories.id
+projects_id int fk >- projects.id
+subcontractors_id int fk >- subcontractors.id
+project_subItem_status_id int fk -< project_subItem_status.id
+
+
+project_subItem_status
+-
+id serial pk 
+status varchar
+
+
+
+
+categories
+-
+id serial pk
+name varchar 
+
+
+report_result_contents
+-
+id serial pk 
+title varchar 
+content varchar 
+image_document varchar 
+date date
+created_date date
+update_at date 
+projects_id int FK >- projects.id
+
+
+checklists
+-
+id
+title varchar
+content varchar
+date date null
+is_done boolean 
+project_subItem_id int fk >- project_subItem.id    
+
+
+
+subcontractors
+-
+id serial pk 
+name varchar 
+phone number 
+email address
+address varchar 
+
+
+<<<<<<< HEAD
+chatroom
+-
+id
+content varchar
+image varchar
+main_user FK >- users.id
+sub_user FK >- users.id
+=======
+
+
+
+16/5/2022
+
+# Visualize on https://quick-erd.surge.sh
+#
+# Relationship Types
+#  -    - one to one
+#  -<   - one to many
+#  >-   - many to one
+#  >-<  - many to many
+#  -0   - one to zero or one
+#  0-   - zero or one to one
+#  0-0  - zero or one to zero or one
+#  -0<  - one to zero or many
+#  >0-  - zero or many to one
+#
+# 
+
+user_layers
+- 
+id serial pk 
+name 
+
+
+categories
+- 
+id serial pk 
+name varchar
+
+users
+-
+id serial pk 
+username varchar
+password varchar
+phone number null
+email address null
+company varchar null 
+user_layers int FK >- user_layers.id
+category_id int FK >- categories.id
+
+
+projects
+-
+id serial pk
+projectcode varchar 
+title varchar 
+location varchar 
+contactperson varchar 
+type varchar
+estimatedcost varchar 
+description varchar
+image varchar
+startdate varchar 
+enddate varchar 
+project_status enum
+
+
+
+participant_list
+-
+id serial pk 
+users_id int fk -< users.id
+projects_id int fk -< projects.id
+
+
+
+checklists
+-
+id serial pk 
+area varchar
+description
+start_day date
+end_day date
+projects_id int fk >- projects.id
+checklists_status enum
+
+
+subcon_checklists
+-
+id serial pk 
+users_id int fk -< users.id 
+checklists_id int fk  -< checklists.id
+
+
+
+checklist_subitems
+-
+id serial pk
+description varchar
+checkLlist_status enum
+checklist_id int fk -< checklists.id
+
+
+
+report_result_contents
+-
+id serial pk 
+description varchar 
+image_document varchar 
+created_date date
+update_at date 
+checklists_id int FK >- checklists.id

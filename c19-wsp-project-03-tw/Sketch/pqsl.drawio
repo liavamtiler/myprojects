@@ -1,0 +1,55 @@
+<mxfile host="65bd71144e">
+    <diagram id="WOTiio4F9omW24kze7AP" name="Page-1">
+        <mxGraphModel dx="650" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="online Shop -catfood category&lt;br&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="430" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="design database&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="600" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="frontend" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="backend" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="440" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="cart&amp;nbsp;&lt;br&gt;-calculation&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="700" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="login page for&amp;nbsp;&amp;nbsp;&lt;br&gt;-admin page&amp;nbsp;&lt;br&gt;-user page&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="700" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="FUNCTIONS&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="700" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="價格試算器&lt;br&gt;? by catfoods , etc&amp;nbsp;&lt;br&gt;you name it.&amp;nbsp;&lt;br&gt;(socket.io function)&amp;nbsp;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="780" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="SEACHING NAV BAR&amp;nbsp;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="780" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="關鍵字提示" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="450" y="780" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="YOU NAME IT" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="780" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="870" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

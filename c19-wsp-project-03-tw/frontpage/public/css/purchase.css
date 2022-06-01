@@ -1,0 +1,86 @@
+.purchaseContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    position: static;
+    width:auto;
+}
+
+.card-img-top {
+    width: auto;
+}
+
+.card-body{
+    width: 600px;
+}
+
+.priceContainer {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    color: green;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-warning {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 1032px) {
+    .card {
+      position: static;
+    
+    }
+
+    .card-body{
+        width: 300px;
+    }
+
+    .EshopIntroduction {
+        display: none;
+      }
+      
+
+
+    }
+
+    @media screen and (max-width: 769) {
+        .card {
+          position: static;
+        
+        }
+    
+        .card-body{
+            width: 300px;
+        }
+    
+        .EshopIntroduction {
+            display: none;
+          }
+          
+    
+    
+        }
+
+    
+    @media screen and (max-width: 430px) {
+    
+    #outerContainer{
+      margin: 0;
+    }
+
+    .card-body{
+        width: 170px;
+    }
+    
+    .EshopIntroduction {
+      display: none;
+    }
+    
+      }

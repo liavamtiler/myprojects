@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/productDetail.css" />
+    <link rel="stylesheet" href="./css/frontPage.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+    <title>歡迎加入會員</title>
+</head>
+
+<body>
+    <div class="logoContainer">
+        <img src="./img/frontpage_img/logo.jpg" />
+    </div>
+    <div id="outerContainer">
+        <div id="register">
+            <form id="registrationForm">
+                <h1 id="歡迎加入會員">歡迎加入會員</h1>
+                <div>
+                    <input type="text" name="name" placeholder="帳號名稱(長度限於6-8字)" width="30px">
+                </div>
+                <div>
+                    <br><input type="password" name="password" placeholder="密碼必須8-15字，含大小楷及特別符號">
+                </div>
+                <div>
+                    <br><input type="date" name="date_of_birth" placeholder="你的生日日期">
+                </div>
+                <div>
+                    <br><select name="gender">
+                        <option value="null"></option>
+                        <option value="boy">男</option>
+                        <option value="girl">女</option>
+                    </select>
+                </div>
+
+                <div>
+                    <br><input type="submit" id="提交">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./js/register.js"></script>
+</body>
+
+</html>

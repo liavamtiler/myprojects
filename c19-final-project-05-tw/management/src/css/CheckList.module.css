@@ -1,0 +1,9 @@
+.blur1{
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(3px)!important;
+  }
+
+  .seach{
+    width:85%;
+    font-size:16px;
+  }

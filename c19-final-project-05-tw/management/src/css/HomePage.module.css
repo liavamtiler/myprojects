@@ -1,0 +1,176 @@
+* {
+  font-family: sans-serif; /* Change your font family */
+}
+
+.changeContainer{ 
+  margin-left: 500px;
+  display: flex;
+  justify-content: center;
+  width: 100px; 
+
+}
+.contentTable {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color:rgb(0, 132, 255);
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+/* showing which on is active */
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+/* Button */
+.button {
+  width: 60px;
+  height: 20px;
+  padding: 0;
+  background: #009578;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: "Quicksand", sans-serif;
+
+  cursor: pointer;
+}
+.button:hover {
+  background: #008168;
+}
+
+/* .button:active {
+  background: #006e58;
+} */
+
+.issue{ 
+  background:#fac11f ;
+}
+.attention{ 
+  background:#e43e31 ;
+}
+.issue:hover {
+  background: #c99e27;
+}
+.attention:hover {
+  background:#972f27
+}
+.pending{ 
+  background-color:aqua
+}
+.pending:hover {
+  background:rgb(13, 65, 65)
+}
+.completed{ 
+  background-color: darkkhaki;
+}
+.completed:hover{ 
+  background-color: rgb(87, 81, 7);
+}
+
+
+.background {
+  /* The image used */
+  position: fixed;
+  content:"";
+  left: 0;
+  top: 0;
+
+  background-image: url(../image/orderpagebg.jpg);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /* Full height */
+  width:100%;
+  height: 100%;
+  z-index:-10;
+}
+
+.blur1{
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+.blur2{
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.container {
+  background-color: #ffffff;
+  opacity: 0.8;
+  max-width: 1400px;
+  margin: auto;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  width: 75%;
+}
+
+.bigcontainer {
+  max-width: 1800px;
+  margin: auto;
+  padding-top: 30px;
+  /* margin-top: 20px; */
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}

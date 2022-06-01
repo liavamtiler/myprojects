@@ -1,0 +1,129 @@
+/* header */
+
+.logoContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.logoContainer a{
+  display: flex;
+  justify-content: center;
+}
+
+.logoContainer>a>img{
+  width: 60%;
+  height: 90%;
+}
+
+.cart {
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: blue;
+
+  }
+
+  
+  .cartNumber{ 
+    position:fixed;
+    bottom: 50px;
+    right: 20px;
+    font-size: 30px;
+    color: red; 
+  }
+
+.productinformationText {
+  margin-left: 20px;
+}
+.productinformationText h3 {
+  font-size: 1.5rem;
+}
+
+/* bigcard */
+
+.outCard {
+  display: flex;
+  margin: 0;
+}
+
+.card {
+  width: 100%;
+  flex-direction: unset;
+}
+.cardPhotoContainer{
+  width: 100%;
+}
+
+.card-body{
+  padding: 0;
+}
+
+.card-body p {
+  font-size: 0.5rem;
+  margin-right: 30px;
+}
+
+.price {
+color: green;
+font-weight: bolder;
+}
+
+.wightAndSoldContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sold{
+  color: rgb(143, 4, 4);
+}
+
+.likeContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.insert {
+ background-color: rgb(235, 216, 51);
+ color: black;
+ font-weight: bold;
+}
+
+.fa-heart {
+  color: red;
+}
+
+/* comment session */
+
+.commentconTainer > * {
+display: none;
+}
+
+.commentconTainer {
+  display: flex;
+  align-items: center;
+}
+
+.commentPlace {
+  position: relative;
+}
+
+.edit{
+  position: absolute;
+  top:0;
+  right: 0;
+}
+
+.delete {
+  position: absolute;
+  bottom:0;
+  right: 0;
+}
+
+.commentPlace p {
+  margin: 0;
+}
+
+.commentPlace{
+  margin-right: 30px;
+}
