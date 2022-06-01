@@ -7,7 +7,6 @@ but i've keep it locally.
 ```
 
 ```
-Remark:
-I am still refactoring the code so far after graduation.
+
 
 ```
