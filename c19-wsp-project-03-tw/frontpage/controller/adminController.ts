@@ -10,7 +10,6 @@ export class AdminController {
     const name = req.body.name;
     const password = req.body.password;
 
-    console.log(req.body);
     const foundAdminName = await this.adminService.login(name);
     const foundAdminNames = foundAdminName[0];
 
@@ -20,7 +19,6 @@ export class AdminController {
     }
     req.session["admin"] = { id: foundAdminNames.id, name: foundAdminNames.name, status: true };
     res.status(200).json(req.session["admin"]);
-    console.log(req.session["admin"]);
   };
 
   register = async (req: Request, res: Response) => {

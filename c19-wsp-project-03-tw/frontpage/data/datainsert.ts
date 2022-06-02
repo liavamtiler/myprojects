@@ -34,7 +34,6 @@ async function demo() {
       ]
     );
   }
-  console.log("完成");
   await client.end();
 }
 

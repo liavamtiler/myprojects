@@ -215,7 +215,6 @@ async function editComments(commentID, userID) {
       content: newEdit,
       id: commentID,
     };
-    console.log(editComment);
 
     const response = await fetch(`/comments`, {
       method: "PUT",
