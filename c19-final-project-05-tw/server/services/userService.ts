@@ -12,6 +12,7 @@ export class UserService {
       )
     ).rows;
     logger.info(result, "result");
+    console.log("@@@@");
     return result;
   };
 
@@ -33,7 +34,7 @@ export class UserService {
     company: string
   ) => {
     logger.info("this.signUpRequest is triggered");
-
+    console.log(username, password, email, company);
     logger.info(
       "username: string, password: string,phone: string, email: string,company: string |||",
       username,

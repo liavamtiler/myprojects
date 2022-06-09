@@ -11,6 +11,7 @@ export class AuthController {
 
   signUpNewUser = async (req: Request, res: Response) => {
     logger.info("[Debug], signUpNewUser is triggered");
+
     try {
       const { username, password, email, company } = req.body;
       const hashedPassword = await hashPassword({ password }.password);
@@ -57,6 +58,7 @@ export class AuthController {
       const token = jwtSimple.encode(payload, jwt.jwtSecret);
       res.json({ token: token, user_layer_name: user.user_layer_name });
     } catch (e) {
+      console.log(e);
       res.status(500).json({ message: "INTERNAL SERVER ERROR" });
     }
   };

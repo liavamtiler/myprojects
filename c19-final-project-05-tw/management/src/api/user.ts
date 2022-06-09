@@ -1,4 +1,5 @@
 const REACT_APP_BACKEND_URL = process.env.REACT_APP_API!;
+console.log(REACT_APP_BACKEND_URL);
 
 export const signUp = async (
   username: string,
@@ -32,6 +33,7 @@ export const login = async (username: string, password: string) => {
     },
     body: JSON.stringify({ username, password }),
   });
+
   return resp.json();
 };
 
